@@ -13,9 +13,9 @@
             <div class="logo">S3 Static Website</div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
                 <li><a href="documentation.html" class="active">Documentation</a></li>
                 <li><a href="resources.html">Resources</a></li>
-                <li><a href="contact.html">Find Us</a></li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -27,72 +27,92 @@
 
     <main>
         <section class="documentation">
-            <h1>How to Host a Static Website Using Amazon S3</h1>
+            <h1>Amazon S3 Technical Documentation</h1>
             
-            <div class="steps">
-                <div class="step">
-                    <h3>1. Create an AWS account</h3>
-                    <p>Sign up for an AWS account if you don't already have one. You'll need to provide payment information, but there's a free tier available.</p>
+            <div class="s3-features">
+                <h2>Key Features of Amazon S3</h2>
+                
+                <div class="feature">
+                    <h3>Storage Classes</h3>
+                    <p>Amazon S3 offers multiple storage classes designed for different use cases:</p>
+                    <ul>
+                        <li><strong>S3 Standard:</strong> For frequently accessed data</li>
+                        <li><strong>S3 Standard-IA:</strong> For infrequently accessed data</li>
+                        <li><strong>S3 Glacier:</strong> For long-term archival</li>
+                        <li><strong>S3 Express One Zone:</strong> High-performance, single-zone storage with single-digit millisecond latency</li>
+                    </ul>
                 </div>
                 
-                <div class="step">
-                    <h3>2. Open the S3 console and create a bucket</h3>
-                    <p>Navigate to the S3 service in the AWS Management Console and click "Create bucket". Choose a globally unique bucket name and select your preferred region.</p>
+                <div class="feature">
+                    <h3>How Amazon S3 Works</h3>
+                    <p>Amazon S3 stores data as objects within buckets. An object consists of a file and metadata that describes the file. A bucket is a container for objects.</p>
+                    <ul>
+                        <li><strong>Objects:</strong> Files and their metadata stored in S3</li>
+                        <li><strong>Buckets:</strong> Containers that hold objects</li>
+                        <li><strong>Keys:</strong> Unique identifiers for objects within a bucket</li>
+                        <li><strong>Regions:</strong> Geographic locations where S3 stores your buckets</li>
+                    </ul>
                 </div>
                 
-                <div class="step">
-                    <h3>3. Uncheck "Block All Public Access"</h3>
-                    <p>For a public website, you'll need to allow public access to your bucket. Uncheck the "Block all public access" option during bucket creation.</p>
+                <div class="feature">
+                    <h3>Data Consistency Model</h3>
+                    <p>Amazon S3 provides strong read-after-write consistency for PUT and DELETE requests in all AWS Regions. This means:</p>
+                    <ul>
+                        <li>Immediate consistency for new object writes</li>
+                        <li>Immediate consistency for object updates and deletes</li>
+                        <li>Strong consistency for list operations</li>
+                    </ul>
                 </div>
                 
-                <div class="step">
-                    <h3>4. Upload your index.html and other files</h3>
-                    <p>Upload all your website files including HTML, CSS, JavaScript, and any media files to your bucket.</p>
+                <div class="feature">
+                    <h3>Security and Access Management</h3>
+                    <p>S3 provides multiple layers of security:</p>
+                    <ul>
+                        <li><strong>IAM Policies:</strong> Control access at the user and role level</li>
+                        <li><strong>Bucket Policies:</strong> Resource-based policies for bucket-level access</li>
+                        <li><strong>Access Control Lists (ACLs):</strong> Object-level access control</li>
+                        <li><strong>S3 Block Public Access:</strong> Prevents accidental public exposure</li>
+                    </ul>
                 </div>
                 
-                <div class="step">
-                    <h3>5. Enable Static Website Hosting in the bucket properties</h3>
-                    <p>Go to the bucket properties, find the "Static website hosting" section, and enable it. Set your index document (usually index.html) and error document.</p>
+                <div class="feature">
+                    <h3>Accessing Amazon S3</h3>
+                    <p>Multiple ways to interact with S3:</p>
+                    <ul>
+                        <li><strong>AWS Management Console:</strong> Web-based interface</li>
+                        <li><strong>AWS CLI:</strong> Command-line interface</li>
+                        <li><strong>AWS SDKs:</strong> Programming language-specific libraries</li>
+                        <li><strong>REST API:</strong> Direct HTTP interface</li>
+                    </ul>
                 </div>
                 
-                <div class="step">
-                    <h3>6. Add a public-read bucket policy to allow file access</h3>
-                    <p>Add a bucket policy that grants public read access to all objects in your bucket. This is necessary for visitors to view your website.</p>
-                    <pre><code>{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "PublicReadGetObject",
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::your-bucket-name/*"
-    }
-  ]
-}</code></pre>
+                <div class="feature">
+                    <h3>Paying for Amazon S3</h3>
+                    <p>Amazon S3 charges you only for what you actually use, with no hidden fees and no overage charges. This pay-as-you-go model gives you a variable-cost service that can grow with your business.</p>
+                    <ul>
+                        <li>No predetermined storage capacity requirements</li>
+                        <li>No overage fees or service shutoffs</li>
+                        <li>Cost advantages of AWS infrastructure</li>
+                        <li>AWS Free Tier available for new customers</li>
+                    </ul>
+                    <p>When you sign up for AWS, your account is automatically signed up for all services, but you're only charged for what you use.</p>
                 </div>
                 
-                <div class="step">
-                    <h3>7. Copy the website endpoint URL to view your site</h3>
-                    <p>After enabling static website hosting, S3 provides an endpoint URL. Use this URL to access your website.</p>
+                <div class="feature">
+                    <h3>PCI DSS Compliance</h3>
+                    <p>Amazon S3 supports the processing, storage, and transmission of credit card data and has been validated as compliant with Payment Card Industry (PCI) Data Security Standard (DSS).</p>
+                    <ul>
+                        <li>Validated for PCI DSS Level 1 compliance</li>
+                        <li>Suitable for merchant and service provider use</li>
+                        <li>AWS PCI Compliance Package available upon request</li>
+                    </ul>
                 </div>
-            </div>
-            
-            <div class="best-practices">
-                <h2>Best Practices</h2>
-                <ul>
-                    <li>Use compressed images to reduce load time</li>
-                    <li>Keep file names lowercase and consistent</li>
-                    <li>Test the site locally before uploading</li>
-                    <li>Avoid hardcoding sensitive information</li>
-                    <li>Use meaningful tags for HTML (semantic markup)</li>
-                </ul>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Static Website Hosting with S3</p>
+        <p>&copy; 2025 Static Website Hosting with S3</p>
     </footer>
 
     <script src="js/script.js"></script>

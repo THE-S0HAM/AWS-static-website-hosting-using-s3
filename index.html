@@ -13,9 +13,9 @@
             <div class="logo">S3 Static Website</div>
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
                 <li><a href="documentation.html">Documentation</a></li>
                 <li><a href="resources.html">Resources</a></li>
-                <li><a href="contact.html">Find Us</a></li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -27,37 +27,77 @@
 
     <main>
         <section class="hero">
-            <div class="profile-container">
-                <div class="profile-image">
-                    <img src="images/soham-deshmukh.jpg" alt="Soham Deshmukh" class="profile-photo">
-                </div>
-                <div class="profile-info">
-                    <h1>Soham Deshmukh</h1>
-                    <p class="title">AWS Cloud Club Captain</p>
-                    <p class="company">AWS Cloud Club at Sanjivani College of Engineering</p>
-                    <p class="location">Kopargaon, Maharashtra, India</p>
-                    <p class="email">awscloudclubscoe@yahoo.com</p>
-                </div>
+            <h1>Amazon S3 Static Website Hosting</h1>
+            
+            <div class="s3-overview">
+                <h2>What is Amazon S3?</h2>
+                <p>
+                    Amazon Simple Storage Service (Amazon S3) is an object storage service that offers 
+                    industry-leading scalability, data availability, security, and performance. 
+                    Customers of all sizes and industries can use Amazon S3 to store and protect any 
+                    amount of data for a range of use cases, such as data lakes, websites, mobile 
+                    applications, backup and restore, archive, enterprise applications, IoT devices, 
+                    and big data analytics.
+                </p>
             </div>
             
-            <div class="project-description">
-                <h2>Project Overview</h2>
-                <p>
-                    This project demonstrates how to host a static website using Amazon S3. 
-                    Amazon S3 is a powerful cloud object storage service by AWS that allows 
-                    easy and scalable hosting of static web content. In this project, a simple 
-                    multi-page HTML website is created and deployed on S3, showcasing personal info, 
-                    documentation, and helpful resources. It guides you through creating a bucket, 
-                    uploading files, setting permissions, and enabling static hosting — all without 
-                    the need for a traditional web server. This is ideal for portfolios, documentation 
-                    sites, and beginners learning cloud hosting.
-                </p>
+            <div class="hosting-steps">
+                <h2>How to Host a Static Website Using Amazon S3</h2>
+                
+                <div class="steps">
+                    <div class="step">
+                        <h3>1. Create an AWS account</h3>
+                        <p>Sign up for an AWS account if you don't already have one. You'll need to provide payment information, but there's a free tier available.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h3>2. Open the S3 console and create a bucket</h3>
+                        <p>Navigate to the S3 service in the AWS Management Console and click "Create bucket". Choose a globally unique bucket name and select your preferred region.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h3>3. Uncheck "Block All Public Access"</h3>
+                        <p>For a public website, you'll need to allow public access to your bucket. Uncheck the "Block all public access" option during bucket creation.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h3>4. Upload your index.html and other files</h3>
+                        <p>Upload all your website files including HTML, CSS, JavaScript, and any media files to your bucket.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h3>5. Enable Static Website Hosting in the bucket properties</h3>
+                        <p>Go to the bucket properties, find the "Static website hosting" section, and enable it. Set your index document (usually index.html) and error document.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h3>6. Add a public-read bucket policy to allow file access</h3>
+                        <p>Add a bucket policy that grants public read access to all objects in your bucket. This is necessary for visitors to view your website.</p>
+                        <pre><code>{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::your-bucket-name/*"
+    }
+  ]
+}</code></pre>
+                    </div>
+                    
+                    <div class="step">
+                        <h3>7. Copy the website endpoint URL to view your site</h3>
+                        <p>After enabling static website hosting, S3 provides an endpoint URL. Use this URL to access your website.</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Static Website Hosting with S3</p>
+        <p>&copy; 2025 Static Website Hosting with S3</p>
     </footer>
 
     <script src="js/script.js"></script>

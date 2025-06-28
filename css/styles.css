@@ -112,11 +112,9 @@ section {
 
 /* Home Page */
 .hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
     text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .profile-container {
@@ -199,16 +197,90 @@ code {
     font-family: monospace;
 }
 
-.best-practices {
-    background-color: var(--white);
+.s3-overview, .hosting-steps {
+    max-width: 800px;
+    margin: 2rem auto;
     padding: 1.5rem;
+    background-color: var(--white);
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.best-practices ul {
+.s3-features {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.feature {
+    background-color: var(--white);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature h3 {
+    color: var(--primary-color);
+}
+
+.feature ul {
     list-style: disc;
     padding-left: 1.5rem;
+}
+
+.contributor-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.contributor-section .profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    background-color: var(--white);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contributor-section .profile-info h3 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.social-links {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.social-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    color: var(--white);
+}
+
+.social-btn.linkedin {
+    background-color: #0077b5;
+}
+
+.social-btn.linkedin:hover {
+    background-color: #005885;
+}
+
+.social-btn.github {
+    background-color: #333;
+}
+
+.social-btn.github:hover {
+    background-color: #000;
 }
 
 /* Resources Page */
